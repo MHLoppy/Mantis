@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>img\Mantis icon 32px 8bit.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Betty0004.wav" />
+    <None Remove="Betty0005.wav" />
+    <None Remove="Betty0029.wav" />
+    <None Remove="img\Mantis background v2.png" />
+    <None Remove="Mantis background.png" />
+    <None Remove="Mantis button down 120px.png" />
+    <None Remove="Mantis button highlight 120px.png" />
+    <None Remove="MC1 MCG Mantis button.png" />
+    <None Remove="MUSIC10.WAV" />
+    <None Remove="MUSIC22.WAV" />
+    <None Remove="Sound0016padded.wav" />
+    <None Remove="Sound0049.wav" />
+    <None Remove="Sound0052padded.wav" />
+    <None Remove="Sound0058.wav" />
+    <None Remove="Sound0059.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\Mantis button 120px.png" />
+    <Resource Include="img\Mantis button down 120px.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Mantis button highlight 120px.png" />
+    <EmbeddedResource Include="snd\Betty0004.wav">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="snd\Betty0005.wav">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="snd\MUSIC10.WAV">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="snd\Sound0016padded.wav">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="snd\Sound0058.wav">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="snd\Betty0029.wav">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Resource Include="img\Mantis background v2.png" />
+    <Resource Include="img\Mantis icon 32px 8bit.ico" />
+    <EmbeddedResource Include="snd\MUSIC22.WAV">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="snd\Sound0049.wav">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="snd\Sound0052padded.wav">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="snd\Sound0059.wav">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

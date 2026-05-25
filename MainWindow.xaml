@@ -1,0 +1,114 @@
+﻿<Window x:Class="Mantis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mantis"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="420" MinHeight="450"
+        Title="Mantis" Width="472" Height="529">
+    <Window.Background>
+        <ImageBrush ImageSource="/img/Mantis background v2.png" Stretch="UniformToFill"/>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="310"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+    <!--<Grid Width="414" Height="464">
+        <Grid.Background>
+            <ImageBrush ImageSource="/img/Mantis background.png" Stretch="UniformToFill"/>
+        </Grid.Background>-->
+        <MediaElement x:Name="MusicPlayer" Source="/snd/MUSIC22.WAV" Volume="0.5" LoadedBehavior="Manual" UnloadedBehavior="Stop" MediaEnded="MusicPlayer_MediaEnded" />
+        <MediaElement x:Name="ClickSound" Source="/snd//Sound0052padded.WAV" Volume="0.5" LoadedBehavior="Manual" UnloadedBehavior="Stop" />
+        <MediaElement x:Name="BettySound" Source="/snd//Sound0005.WAV" Volume="0.5" LoadedBehavior="Manual" UnloadedBehavior="Stop" />
+        <MediaElement x:Name="ShutdownSound" Source="/snd//Sound0058.WAV" Volume="0.5" LoadedBehavior="Manual" UnloadedBehavior="Stop" />
+
+        <StackPanel Margin="10,5,0,0" Grid.Row="0">
+            <Label Content="MCG EXE PATH (INPUT)" FontFamily="Consolas" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF7CD4EC" Background="#80000000"/>
+            <Grid>
+                <!-- 2-column grids replacing horizontal stack panels so that the textboxes fill available width -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Width="54" Content="Browse..." Click="BrowseInput_Click" MouseEnter="BrowseInput_MouseEnter" MouseLeave="BrowseInput_MouseLeave" FontFamily="Segoe UI" FontSize="12"/>
+                <TextBox Grid.Column="1" Name="InputExeTextBox" Text="File path of MechCommander Gold exe (e.g., MCX.exe)..." FontFamily="Segoe UI" FontSize="12" FontWeight="Regular" Margin="5,0,10,0" VerticalAlignment="Top" Foreground="Black" Background="WhiteSmoke" IsEnabled="False"/>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Margin="10,78,0,0" Grid.Row="0">
+            <Label Content="PATCHED EXE PATH (OUTPUT)" FontFamily="Consolas" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF7CD4EC" Background="#80000000"/>
+            <Grid>
+                <!-- 2-column grids replacing horizontal stack panels so that the textboxes fill available width -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Width="54" Content="Browse..." Click="BrowseOutput_Click" MouseEnter="BrowseOutput_MouseEnter" MouseLeave="BrowseOutput_MouseLeave" FontFamily="Segoe UI"/>
+                <TextBox Grid.Column="1" Name="OutputExeTextBox" Text="File path for the patched exe (e.g., MCX_patched.exe)..." FontFamily="Segoe UI" FontSize="12" FontWeight="Regular" Margin="5,0,10,0" VerticalAlignment="Top" Foreground="Black" Background="WhiteSmoke" IsEnabled="False"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Margin="10,154,0,0" Grid.Row="0">
+            <Label Content="OPTIONS" FontFamily="Consolas" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="#FF7CD4EC" Background="#80000000"/>
+            <CheckBox Name="SoundMusicCheckbox" Content="Mantis: disable music/SFX (does not affect game)" Checked="SoundMusicCheckbox_Checked" Unchecked="SoundMusicCheckbox_Unchecked" MouseEnter="SoundMusicCheckbox_MouseEnter" MouseLeave="SoundMusicCheckbox_MouseLeave" FontFamily="Roboto" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,0,0,0" Foreground="#FF7CD4EC"/>
+            <CheckBox Name="LeftArmCheckbox" Content="Fix left arm bug" Click="Normal_Click" MouseEnter="LeftArmCheckbox_MouseEnter" MouseLeave="LeftArmCheckbox_MouseLeave" FontFamily="Roboto" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Foreground="WhiteSmoke"/>
+            <CheckBox Name="WeaponSizeCheckbox" Content="Fix weapon size classification bug" Click="Normal_Click" MouseEnter="WeaponSizeCheckbox_MouseEnter" MouseLeave="WeaponSizeCheckbox_MouseLeave" FontFamily="Roboto" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Foreground="WhiteSmoke"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <CheckBox Name="ResCheckbox" Content="Custom game resolution" Checked="ResCheckbox_Checked" Unchecked="ResCheckbox_Unchecked" MouseEnter="ResCheckbox_MouseEnter" MouseLeave="ResCheckbox_MouseLeave" FontFamily="Roboto" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Foreground="WhiteSmoke"/>
+                <TextBox Name="ResWidth" Text="640" Width="50" Height="20" MouseEnter="ResWidth_MouseEnter" MouseLeave="ResWidth_MouseLeave"  FontFamily="Consolas" FontSize="14" Margin="10,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Gray" Background="WhiteSmoke" IsEnabled="False"/>
+                <Label Content="x" FontFamily="Consolas" FontSize="14" Margin="0,0,0,0" Foreground="WhiteSmoke"/>
+                <TextBox Name="ResHeight" Text="480" Width="50" Height="20" MouseEnter="ResHeight_MouseEnter" MouseLeave="ResHeight_MouseLeave" FontFamily="Consolas" FontSize="14" Margin="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Gray" Background="WhiteSmoke" IsEnabled="False"/>
+            </StackPanel>
+            <CheckBox Name="NoCdCheckbox" Content="Disable CD checks" Checked="NoCdCheckbox_Checked" Unchecked="NoCdCheckbox_Unchecked" MouseEnter="NoCdCheckbox_MouseEnter" MouseLeave="NoCdCheckbox_MouseLeave" FontFamily="Roboto" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,0,0,0" Foreground="WhiteSmoke"/>
+            <CheckBox Name="FixCfgPathsCheckbox" Content="Fix CD paths in SYSTEM.CFG (in destination folder)" Click="Normal_Click" MouseEnter="FixCfgPathsCheckbox_MouseEnter" MouseLeave="FixCfgPathsCheckbox_MouseLeave" FontFamily="Roboto" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,5,0,0" Foreground="Gray" IsEnabled="False"/>
+        </StackPanel>
+
+        <Button Name="PatchButton" Grid.Row="1" Click="PatchButton_Click" Content="APPLY PATCH" MouseEnter="PatchButton_MouseEnter" MouseLeave="PatchButton_MouseLeave" FontFamily="Consolas" FontSize="18" FontWeight="Bold" Width="120" Height="38" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver" />
+                                <VisualState x:Name="Pressed" />
+                                <VisualState x:Name="Disabled" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Grid x:Name="ImageGrid">
+                            <Image x:Name="NormalImage" Source="/img/Mantis button 120px.png" Stretch="Fill" />
+                            <Image x:Name="HighlightImage" Source="/img/Mantis button highlight 120px.png" Stretch="Fill" Visibility="Hidden"/>
+                            <Image x:Name="PressedImage" Source="/img/Mantis button down 120px.png" Stretch="Fill" Visibility="Hidden" />
+                        </Grid>
+
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="NormalImage" Property="Visibility" Value="Hidden" />
+                            <Setter TargetName="HighlightImage" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="NormalImage" Property="Visibility" Value="Hidden" />
+                            <Setter TargetName="HighlightImage" Property="Visibility" Value="Hidden" />
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Visible" />
+                            <Setter Property="Foreground" Value="WhiteSmoke"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="ImageGrid" Property="Opacity" Value="0.5" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Label Name="DescriptionLabel" Grid.Row="2" FontFamily="Segoe UI" FontSize="14" FontWeight="Regular" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom" Height="Auto" Foreground="#FF7CD4EC" Background="#80000000"/>
+    </Grid>
+</Window>
