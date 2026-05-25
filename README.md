@@ -4,7 +4,7 @@ A simple patcher to automate a few fixes for MechCommander Gold that otherwise r
 
 As an era-appropriate display of whimsy, Mantis uses music and SFX from the game.
 
-![](img/Mantis screenshot composite.png)
+![](img/Mantis-screenshot-composite.png)
 
 _(I was going to call it "Lynx", but a lot of software is apparently called Lynx already; "Beast" and "Hunter" sound too aggressive; "Vixen" has undesired undertones.)_
 
