@@ -25,7 +25,7 @@ Mantis has been designed around and tested on the _unpatched_ English MechComman
 
 ## Download
 
-Download the latest release [here](https://github.com/MHLoppy/Mantis/releases).
+Download the latest release [here](https://github.com/MHLoppy/Mantis/releases/tag/latest).
 
 Mantis targets 64-bit Windows systems and requires .NET 8 or higher to run. If not already installed, you may be prompted to install .NET when first running Mantis.
 
