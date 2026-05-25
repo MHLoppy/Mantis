@@ -31,7 +31,9 @@ Mantis targets 64-bit Windows systems and requires .NET 8 or higher to run. If n
 
 ## Credits
 
-The CD check patching option builds on the work of [MechCommander No-CD Patcher](https://github.com/Corben-SpacedOut/MechCommanderNoCDPatcher) by Corben-SpacedOut / jarno-r.
+- The left arm and weapon size classification fixes only exist because of [Vana's](https://mhloppy.com/2026/03/mechcommander-commando-uller-movement-speed/#comments) [comments](https://mhloppy.com/2026/04/mechcommander-lbx-ac-autocannon-damage/#comments) giving me a brain worm.
+- Render resolution changes are based on the work of [RizZen and magic (AKA magicX)](https://www.moddb.com/mods/mechcommander-gold-hi-res/tutorials/mc-beginners-guide-resolution-notes).
+- The CD check patching option builds on the work of [MechCommander No-CD Patcher](https://github.com/Corben-SpacedOut/MechCommanderNoCDPatcher) by Corben-SpacedOut / jarno-r.
 
 ## License
 
