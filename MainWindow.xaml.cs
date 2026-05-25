@@ -268,7 +268,7 @@ public partial class MainWindow : Window
             string msg = $"Patch applied and saved successfully to:\n{outputExePath}";
             if (NoCdCheckbox.IsChecked == true && FixCfgPathsCheckbox.IsChecked == true)
             {
-                msg += "\n\n" + $"A backup of the old SYSTEM.CFG file was created at {backupSystemCfgPath}";
+                msg += "\n\n" + $"A backup of the old SYSTEM.CFG file was created at: {backupSystemCfgPath}";
             }
             MessageBox.Show(msg, "Harrison - excellent job", MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -560,8 +560,7 @@ public partial class MainWindow : Window
         UpdateCfgFile(mainSystemCfgPath, paths);
     }
 
-    // TODO: this one --> works on regex101, but need to test against the actual file: st\s+(\w+)\s*=\s*"([^"]*)"
-    [GeneratedRegex(@"^\s*st\s+(\w+)\s+=\s+""([^""]*)")]
+    [GeneratedRegex(@"st\s+(\w+)\s*=\s*""([^""]*)""")]
     private static partial Regex SystemCfgRegex();
 
     private static void UpdateCfgFile(string filePath, Dictionary<string, string> updates)
